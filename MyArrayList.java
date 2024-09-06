@@ -16,7 +16,7 @@ public class MyArrayList<T> {
     }
 
     public MyArrayList(Collection <? extends T> collection){
-        if (collection.isEmpty()){
+        if (!collection.isEmpty()){
             size = 0;
             capacity = collection.size() + collection.size()/2;
             elements = new Object[capacity];
