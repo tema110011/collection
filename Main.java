@@ -10,12 +10,12 @@ public class Main {
         for (int i = 20; i < 25; i++) {
             list.add(i);
         }
+        List<Integer> listNull = new ArrayList<>();
         MyArrayList<Integer> myArrayListCollection = new MyArrayList<>(list);
         for (int i = 0; i < myArrayListCollection.getSize(); i++) {
             System.out.println(myArrayListCollection.get(i));
         }
-        System.out.println();
-        System.out.println();
+
         for (int i = 0; i < 10; i++){
             myArrayList.add(i);
             myArrayList1.add(i);
@@ -25,6 +25,7 @@ public class Main {
 
 
         myArrayList.addAll(list);
+        myArrayList.addAll(listNull);
         myArrayList.addAll(myArrayList1);
         myArrayList.sortBubble();
         myArrayList.add(56);
@@ -32,6 +33,7 @@ public class Main {
         for (int i = 0; i < myArrayList.getSize(); i++){
             System.out.println(myArrayList.get(i));
         }
+        System.out.println(myArrayList.get(-1));
 
     }
 }

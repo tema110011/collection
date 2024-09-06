@@ -16,10 +16,13 @@ public class MyArrayList<T> {
     }
 
     public MyArrayList(Collection <? extends T> collection){
-        size = 0;
-        capacity = collection.size() + collection.size()/2;
-        elements = new Object[capacity];
-        addAll(collection);
+        if (collection.isEmpty()){
+            size = 0;
+            capacity = collection.size() + collection.size()/2;
+            elements = new Object[capacity];
+            addAll(collection);
+        }
+
     }
 
     public int getSize() {
@@ -48,18 +51,21 @@ public class MyArrayList<T> {
      * получение элемента по индексу
      */
     public T get(int index) {
-        return (T) elements[index];
+        if (index >= 0 && index < size)return (T) elements[index];
+        return null;
     }
 
     /**
      * удаление по индексу
      */
     public void remove(int index) {
-        for (int i = index; i < elements.length - 1; i++) {
-            elements[i] = elements[i + 1];
-            elements[i + 1] = null;
+        if (index >= 0 && index < size) {
+            for (int i = index; i < elements.length - 1; i++) {
+                elements[i] = elements[i + 1];
+                elements[i + 1] = null;
+            }
+            size--;
         }
-        size--;
     }
 
     /**
